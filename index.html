@@ -1,1 +1,78 @@
-
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        #b1{
+            background-color: blue;
+            color: cyan;
+            position: fixed;
+            top: 80%;
+            left: 46%;
+        }
+        #b2{
+            background-color: blue;
+            color: cyan;
+            position: fixed;
+            top: 80%;
+            left: 54% ;
+        }
+        #b3{
+            background-color: blue;
+            color: cyan;
+            position: fixed;
+            top: 76%;
+            left: 50% ;
+        }
+        #b4{
+            background-color: blue;
+            color: cyan;
+            position: fixed;
+            top: 84%;
+            left: 50%;
+        }
+        #p1{
+            position: absolute;
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body bgcolor="green">
+    <p id="p1">🐞</p>
+    <p id='p2'></p>
+    <button id="b1" onclick="moveLeft()"><</button>
+    <button id="b2" onclick="moveRight()">></button>
+    <button id="b3" onclick="moveUp()">/\</button>
+    <button id="b4" onclick="moveDown()">\/</button>
+    <script>
+        let obj=document.getElementById('p1');
+        let x=0,y=0,i=0;
+        let objs=['🐞','🐋','🦀','🦇','🐙','👻',];
+        let bgColours=['green','blue','sandybrown','darkblue','blue','black'];
+        function dynamic(){
+            document.body.style.backgroundColor=bgColours[i];
+            obj.innerHTML=objs[i];
+            i++;
+            if(i==objs.length){
+                i=0;
+            }
+        }
+        function moveLeft(){
+            obj.style.left=(x-4)+'%';
+            x=x-4;
+        }
+        function moveRight(){
+            obj.style.left=(x+4)+'%';
+            x=x+4;
+        }
+        function moveUp(){
+            obj.style.top=(y-4)+'%';
+            y=y-4;
+        }
+        function moveDown(){
+            obj.style.top=(y+4)+'%';
+            y=y+4;
+        }
+        setInterval(dynamic,5000)
+    </script>
+</body>
